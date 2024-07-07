@@ -82,7 +82,7 @@ There will be no database, but a JSON file will include the data needed for this
 -   **GET /items** Retrieve a list of all wardrobe items.
 -   **GET /items/:id** Retrieve a single wardrobe items.
 -   **POST /items:** Add a new item to the wardrobe.
--   **PUT /items/:id:** Update the details of an existing item.
+-   **PUT /items/:id** Update the details of an existing item.
 -   **DELETE /items/:id** Remove an item from the wardrobe. (Nice to have)
 
 ### Auth
