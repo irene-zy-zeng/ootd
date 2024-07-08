@@ -1,0 +1,29 @@
+// Breakpoints
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+//primary color
+$lavender: #BEBAED;
+$obsidian: #444242;
+$cream: #FFF5EC;
+$grey: #C1BFDB;
+
+//color variations
+$light-lavender: rgba($lavender,0.5);
+
+//supporting color
+$cherry: #D25667;
+$lime: #E6EC8E;
+
+//Grid
+$max-content-width: 63.75rem;
+$tablet-desktop-gutter: 1.5rem;
+$tablet-content-padding: 2rem;
+$mobile-column-gutter: 1rem;
+$mobile-content-padding: 1rem;
+
+//Border
+$border-style: 1px solid $grey;
+
+//Button, Tags, & Form Field
+$border-radius: 20px;
