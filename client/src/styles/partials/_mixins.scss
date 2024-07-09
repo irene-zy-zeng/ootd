@@ -13,9 +13,9 @@
 }
 
 @mixin page-padding-left {
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     @include tablet {
-      padding-left: 2rem;
+      padding-left: 1.5rem;
     }
     @include desktop {
       padding-left: 2.5rem;
@@ -23,11 +23,41 @@
   }
   
   @mixin page-padding-right {
-    padding-right: 1.5rem;
+    padding-right: 1rem;
     @include tablet {
-      padding-right: 2rem;
+      padding-right: 1.5rem;
     }
     @include desktop {
       padding-right: 2.5rem;
+    }
+  }
+
+  @mixin page-padding-top {
+    padding-top: 1rem;
+    @include tablet {
+      padding-top: 1.5rem;
+    }
+    @include desktop {
+      padding-top: 2.5rem;
+    }
+  }
+
+  @mixin page-padding-bottom {
+    padding-bottom: 1rem;
+    @include tablet {
+      padding-bottom: 1.5rem;
+    }
+    @include desktop {
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  @mixin page-padding {
+    padding: 1rem;
+    @include tablet {
+      padding: 1.5rem;
+    }
+    @include desktop {
+      padding: 2.5rem;
     }
   }

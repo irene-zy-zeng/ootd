@@ -1,0 +1,63 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+
+
+.header{
+    background-color: $lavender;
+    color: $obsidian;
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    @include page-padding;
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        gap:0;
+    }
+    @include desktop{
+        margin: auto;
+        max-width: 63.75rem;
+    }
+
+    a{
+        text-decoration: none;
+        text-align: center;
+    }
+
+    &__links{
+        color: $obsidian;
+        display: flex;
+        gap: 16px;
+        justify-content: space-around;
+        width: 100%;
+        @include tablet{
+            width: auto;
+            gap: 1.5rem;
+        }
+    }
+
+    &__link{
+        padding: 1rem 2rem;
+        border-radius: $border-radius;
+        width: 50%;
+
+    }
+
+    &__link--active{
+        background-color: $cream;
+    }
+
+    // &__text{
+    //     padding: 1rem 1.5rem;
+    //     background-color: $cream;
+    //     border-radius: $border-radius;
+    //     width: 100%;
+    // }
+
+
+}
