@@ -1,0 +1,32 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+
+.text-input {
+    &__input {
+      border: none;
+      background-color: $light-lavender;
+      border-radius: .5rem;
+      color: $obsidian;
+      display: block;
+      height: 2.25rem;
+      margin-top: 0.25rem;
+      outline: none;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      @include tablet {
+        height: 2.375rem;
+      }
+      &::placeholder {
+        color: rgba($obsidian, 0.5);
+      }
+      &:focus {
+        border: none;
+        outline: 2px solid $obsidian;
+      }
+      &--error {
+        border: 1px solid $cherry;
+        outline: none;
+      }
+    }
+  }

@@ -1,0 +1,14 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.form{
+    @include page-padding;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-content-padding;
+    @include tablet{
+        gap: $tablet-content-padding;
+        width: 50%;
+    }
+}
