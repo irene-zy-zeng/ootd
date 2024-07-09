@@ -9,13 +9,16 @@ import EditDetailsPage from "./pages/EditDetailsPage/EditDetailsPage";
 import OutfitPage from "./pages/OutfitPage/OutfitPage";
 import AddOutfitPage from "./pages/AddOutfitPage/AddOutfitPage";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
   return (
     <>
+      <div className="wrapper">
       <BrowserRouter>
         <Header />
+        <main className="main-content">
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<ClosetPage />} />
@@ -30,7 +33,10 @@ function App() {
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>
+        </main>
+        <Footer />
       </BrowserRouter>
+      </div>
     </>
   );
 }

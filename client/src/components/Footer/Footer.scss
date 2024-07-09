@@ -1,0 +1,23 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+@use "../../styles//partials/typography" as *;
+
+.footer {
+
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 0;
+    margin-top: auto;
+
+    @include tablet {
+        padding-top: 4.375rem;
+    }
+    @include desktop {
+        padding-block: 5.9375rem 3rem;
+    }
+    
+    &__text {
+        font-family: 'Josefin Sans' sans-serif;
+        color: rgba($obsidian, 0.6);
+    }
+}
