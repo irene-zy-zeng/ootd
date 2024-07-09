@@ -8,12 +8,14 @@ import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage";
 import EditDetailsPage from "./pages/EditDetailsPage/EditDetailsPage";
 import OutfitPage from "./pages/OutfitPage/OutfitPage";
 import AddOutfitPage from "./pages/AddOutfitPage/AddOutfitPage";
+import Header from "./components/Header/Header";
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<ClosetPage />} />
