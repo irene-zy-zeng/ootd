@@ -1,0 +1,18 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+.subheader{
+     background-color: $cream;
+     color: $obsidian;
+    &__content{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        @include page-padding;
+        @include desktop{
+           margin: auto;
+           max-width: 80rem;
+       }
+    }
+
+}
