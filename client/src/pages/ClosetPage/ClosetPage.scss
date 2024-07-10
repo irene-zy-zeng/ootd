@@ -1,0 +1,64 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+
+.allItems{
+    @include page-padding;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-column-gutter;
+    @include tablet{
+        gap: $tablet-desktop-gutter;
+    }
+    @include desktop{
+        margin: auto;
+        max-width: 80rem;
+    }
+}
+
+.catogory-group{
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-column-gutter;
+    @include tablet{
+        gap: $tablet-desktop-gutter;
+    }
+
+    &__title{
+        margin: auto;
+
+    }
+
+    &__content{
+    width: 100%;
+    display: grid;
+    gap: $mobile-column-gutter;
+    grid-template-columns: repeat(6, 1fr);
+    @include tablet{
+        grid-template-columns: repeat(12, 1fr);
+    }
+    }
+
+    &__image-card{
+        grid-column: span 3;
+        height: 30vh;
+        border-radius: $border-radius;
+        &:hover{
+            border: 3px solid $lavender;
+            cursor: pointer;
+        }
+        @include tablet{
+            height: 25vh;
+        }
+        @include desktop{
+            grid-column: span 2;
+        }
+    }
+
+    &__image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+}
