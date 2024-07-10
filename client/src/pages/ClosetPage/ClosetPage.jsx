@@ -12,7 +12,7 @@ const ClosetPage = () => {
 
   const getAllItems = async () => {
     try {
-      const res = await axios.get(`${apiURL}/closet`);
+      const res = await axios.get(`${apiURL}/item`);
       const itemsData = res.data;
       // console.log(itemsData);
       setItemsData(itemsData);
