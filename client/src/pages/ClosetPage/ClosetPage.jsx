@@ -2,6 +2,7 @@ import Button from "../../components/Button/Button";
 import AddIcon from "../../assets/icons/add.svg";
 import SortIcon from "../../assets/icons/sort.svg";
 import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./ClosetPage.scss";
 
@@ -9,6 +10,8 @@ const apiURL = import.meta.env.VITE_API_URL;
 
 const ClosetPage = () => {
   const [itemsData, setItemsData] = useState([]);
+  const { id } = useParams();
+
 
   const getAllItems = async () => {
     try {
@@ -44,9 +47,9 @@ const ClosetPage = () => {
               <h2 className="catogory-group__title sub-header">{category}</h2>
               <div className="catogory-group__content">
                 {groupedItems[category].map((item) => (
-                  <div key={item.id} className="catogory-group__image-card">
+                  <Link to={`/closet/${item.id}`} key={item.id} className="catogory-group__image-card">
                     <img src={item.image} alt={item.name} className="catogory-group__image"/>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
