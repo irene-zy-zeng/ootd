@@ -34,16 +34,15 @@ const ItemDetailsPage = (selectedItemId) => {
   return (
     <div>
       <Subheader titleText="Details"/>
-      <div className="item-details__image">
-        <img />
+      <div className="item-details__image-card">
+        <img src={selectedItem.image} alt={selectedItem.name} className="item-details__image"/>
       </div>
       <form className="form">
         <label className="form__title sub-header">{selectedItem.name}</label>
-        <TextInput name="name" label="NAME" placeholder="NAME OF THE ITEM"/>
-        <TextInput name="catogory" label="CATOGORY" placeholder="CATOGORY OF THE ITEM"/>
-        <TextInput name="color" label="COLOR" placeholder="COLOR OF THE ITEM"/>
-        <TextInput name="season" label="SEASON" placeholder="SEASON OF THE ITEM"/>
-        <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM"/>
+        <TextInput name="catogory" label="CATOGORY" placeholder="CATOGORY OF THE ITEM" value={selectedItem.category}/>
+        <TextInput name="color" label="COLOR" placeholder="COLOR OF THE ITEM" value={selectedItem.color}/>
+        <TextInput name="season" label="SEASON" placeholder="SEASON OF THE ITEM" value={selectedItem.season}/>
+        <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM" value={selectedItem.brand}/>
       </form>
       <div className="item-details__button">
       <Button buttonVariant="delete" buttonLabel="Delete"/>
