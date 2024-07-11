@@ -23,19 +23,25 @@ const ItemDetailsForm = () => {
   return (
       <form className="form">
         <div className="form__photo">
-        <label className="form__title sub-header">Upload a Photo</label>
-        <div className="form__image-box">
-          {imageURL && <img src={imageURL} alt="Image Uploaded" className="form__image"/>}
-          <input type="file" ref={fileUploadRef} onChange={handleImageDisplay} hidden/>
-          <Button buttonVariant="primary" buttonIcon={UploadIcon} iconAltText="Upload Icon" onClickAction={handleImageUpload}/>
+          <label className="form__title sub-header">Upload a Photo</label>
+          <div className="form__image-box">
+            {imageURL && <img src={imageURL} alt="Image Uploaded" className="form__image"/>}
+            <input type="file" ref={fileUploadRef} onChange={handleImageDisplay} hidden/>
+            <Button buttonVariant="primary" buttonIcon={UploadIcon} iconAltText="Upload Icon" onClickAction={handleImageUpload}/>
+          </div>
         </div>
-        </div>
+        <div className="form__detials">
         <label className="form__title sub-header">Item Detials</label>
         <TextInput name="name" label="NAME" placeholder="NAME OF THE ITEM"/>
         <TextInput name="catogory" label="CATOGORY" placeholder="CATOGORY OF THE ITEM"/>
         <TextInput name="color" label="COLOR" placeholder="COLOR OF THE ITEM"/>
         <TextInput name="season" label="SEASON" placeholder="SEASON OF THE ITEM"/>
         <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM"/>
+        <div className="form__button">
+          <Button buttonVariant="delete" buttonLabel="Cancel" />
+          <Button type="submit" buttonVariant="primary" buttonLabel="Submit" />
+        </div>
+        </div>
       </form>
   )
 }

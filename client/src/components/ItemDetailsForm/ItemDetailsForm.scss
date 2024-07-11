@@ -3,12 +3,18 @@
 
 
 .form{
-    display: flex;
-    flex-direction: column;
-    gap: $mobile-content-padding;
-    @include tablet{
-        gap: $tablet-content-padding;
-        width: 50%;
+    @include page-padding;
+    width: 100%;
+    display: grid;
+    gap: $mobile-column-gutter;
+    grid-template-columns: repeat(6, 1fr);
+    @include tablet {
+      grid-template-columns: repeat(12, 1fr);
+      gap: $tablet-desktop-gutter;
+    }
+    @include desktop{
+        margin: auto;
+        max-width: 80rem;
     }
 
     &__photo{
@@ -37,5 +43,24 @@
         width: auto;
         height: 90%;
         object-fit: cover;
+    }
+
+    &__detials{
+        grid-column: span 6;
+        display: flex;
+        flex-direction: column;
+        gap: $mobile-column-gutter;
+        @include tablet{
+            gap: $tablet-desktop-gutter;
+        }
+    }
+
+    &__button{
+        display: flex;
+        gap: $mobile-column-gutter;
+        justify-content: right;
+        @include tablet {
+          gap: $tablet-desktop-gutter;
+        }
     }
 }
