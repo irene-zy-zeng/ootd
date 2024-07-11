@@ -2,7 +2,7 @@ import Button from "../../components/Button/Button";
 import AddIcon from "../../assets/icons/add.svg";
 import SortIcon from "../../assets/icons/sort.svg";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ClosetPage.scss";
 
@@ -11,7 +11,7 @@ const apiURL = import.meta.env.VITE_API_URL;
 const ClosetPage = () => {
   const [itemsData, setItemsData] = useState([]);
   const { id } = useParams();
-
+  const navigate = useNavigate();
 
   const getAllItems = async () => {
     try {
@@ -35,7 +35,7 @@ const ClosetPage = () => {
   return (
     <>
       <div className="button-container">
-        <Button buttonVariant="primary" buttonLabel="Add New Item" buttonIcon={AddIcon}/>
+        <Button buttonVariant="primary" buttonLabel="Add New Item" buttonIcon={AddIcon} onClickAction={() => navigate("/upload")}/>
         <Button buttonVariant="secondary" buttonLabel="Sort By ..." buttonIcon={SortIcon} />
       </div>
     <section className="allItems">
