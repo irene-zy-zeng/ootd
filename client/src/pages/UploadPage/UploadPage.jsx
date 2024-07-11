@@ -9,12 +9,12 @@ const UploadPage = () => {
     <div >
       <Subheader titleText="Upload A New Item" />
       <section className="upload">
-      <div className="upload__photo">
+      {/* <div className="upload__photo">
         <h2 className="upload__title sub-header">Upload a Photo</h2>
         <div className="upload__image-box">
           <img src={UploadIcon} alt="Upload Icon" className="upload__icon"/>
         </div>
-      </div>
+      </div> */}
       <div className="upload__form">
       <ItemDetailsForm />
       </div>

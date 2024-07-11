@@ -10,4 +10,32 @@
         gap: $tablet-content-padding;
         width: 50%;
     }
+
+    &__photo{
+        grid-column: span 6;
+        display: flex;
+        flex-direction: column;
+        gap: $mobile-column-gutter;
+        @include tablet{
+            gap: $tablet-desktop-gutter;
+        }
+    }
+
+    &__image-box{
+        display: flex;
+        flex-direction: column;
+        background-color: $lavender;
+        border-radius: $border-radius;
+        border: 3px dashed rgba($obsidian, 0.5);
+        height: 45vh;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    &__image{
+        width: auto;
+        height: 90%;
+        object-fit: cover;
+    }
 }

@@ -12,26 +12,15 @@
       gap: $tablet-desktop-gutter;
     }
 
-    &__photo{
-        grid-column: span 6;
-        display: flex;
-        flex-direction: column;
-        gap: $mobile-column-gutter;
-        @include tablet{
-            gap: $tablet-desktop-gutter;
-        }
-    }
-
-
-    &__image-box{
-        background-color: $lavender;
-        border-radius: $border-radius;
-        border: 3px dashed rgba($obsidian, 0.5);
-        height: 25vh;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-    }
+    // &__image-box{
+    //     background-color: $lavender;
+    //     border-radius: $border-radius;
+    //     border: 3px dashed rgba($obsidian, 0.5);
+    //     height: 25vh;
+    //     justify-content: center;
+    //     display: flex;
+    //     align-items: center;
+    // }
     
     &__icon{
         width: auto;
