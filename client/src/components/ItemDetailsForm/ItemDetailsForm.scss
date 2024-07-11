@@ -3,7 +3,6 @@
 
 
 .form{
-    @include page-padding;
     display: flex;
     flex-direction: column;
     gap: $mobile-content-padding;
