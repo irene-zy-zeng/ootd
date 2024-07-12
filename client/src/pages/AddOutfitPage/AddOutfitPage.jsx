@@ -33,7 +33,11 @@ const AddOutfitPage = () => {
   const groupedItems = Object.groupBy(itemsData,({category})=> category);
 
   const handleImageClick = (item) => {
-    setCanvasItems([...canvasItems, item]);
+    if (canvasItems.length < 4) {
+      setCanvasItems([...canvasItems, item]);
+    } else {
+      alert("You can only add up to 4 items.");
+    }
   };
 
   const handleCanvasImageClick = (index) => {
