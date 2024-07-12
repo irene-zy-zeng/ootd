@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import UploadPage from "./pages/UploadPage/UploadPage";
 import ItemDetailsPage from "./pages/ItemDetailsPage/ItemDetailsPage";
 import EditDetailsPage from "./pages/EditDetailsPage/EditDetailsPage";
-import OutfitPage from "./pages/OutfitPage/OutfitPage";
+import AllOutfitPage from "./pages/AllOutfitPage/AllOutfitPage";
 import AddOutfitPage from "./pages/AddOutfitPage/AddOutfitPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -28,7 +28,7 @@ function App() {
           <Route path="/closet/:id/edit" element={<EditDetailsPage />} />
           <Route path="/upload" element={<UploadPage />} />
 
-          <Route path="/outfit" element={<OutfitPage />} />
+          <Route path="/outfit" element={<AllOutfitPage />} />
           <Route path="/outfit/new" element={<AddOutfitPage />} />
 
           <Route path="*" element={<PageNotFound />} />
