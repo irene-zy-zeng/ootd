@@ -26,74 +26,6 @@ const ItemDetailsForm = () => {
     setImageURL(cachedURL);
   }
 
-  // const handleImageDisplay = async () =>{
-  //   try {
-  //     const uploadedFile = fileUploadRef.current.files[0];
-  //     const formData = new FormData();
-  //     formData.append("image", uploadedFile);
-  
-  //     const res = await axios.post(`${apiURL}/item`, formData);
-  //     console.log("Response from server:", res);
-  //     const data = res.data;
-  //     console.log("Image URL:", data.image);
-  //     setImageURL(data.image);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // const postNewItem = async (itemsData) => {
-  //   try {
-  //     const res = await axios.post(`${apiURL}/item`, itemsData);
-  //     console.log(res);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const newItem ={
-  //     id: uuid4(),
-  //     // image: event.target.image.value,
-  //     name: event.target.name.value,
-  //     category: event.target.category.value,
-  //     color: event.target.color.value,
-  //     season: event.target.season.value,
-  //     brand: event.target.brand.value,
-  //   };
-  //   console.log(newItem);
-  //   postNewItem(newItem);
-  //   event.target.reset();
-  //   alert("Your upload was successful! Click Ok to redirect to Homepage...");
-  //   navigate("/");
-  // };
-
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-    
-  //   const formData = new FormData(event.target);
-  //   const uploadedFile = fileUploadRef.current.files[0];
-
-  //   if (uploadedFile) {
-  //     formData.append("image", uploadedFile);
-  //   }
-
-  //   try {
-  //     const res = await axios.post(`${apiURL}/item`, formData, {
-  //       headers: {
-  //         "Content-Type": "multipart/form-data",
-  //       },
-  //     });
-  //     console.log(res);
-  //     alert("Your upload was successful! Click Ok to redirect to Homepage...");
-  //     navigate("/");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -110,7 +42,6 @@ const ItemDetailsForm = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      // console.log(res);
       alert("Your upload was successful! Click Ok to redirect to Homepage...");
       navigate("/");
     } catch (error) {
