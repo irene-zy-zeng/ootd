@@ -20,27 +20,27 @@ const ItemDetailsForm = () => {
     fileUploadRef.current.click();
   }
 
-  // const handleImageDisplay = () =>{
-  //   const uploadedFile = fileUploadRef.current.files[0];
-  //   const cachedURL = URL.createObjectURL(uploadedFile);
-  //   setImageURL(cachedURL);
-  // }
-
-  const handleImageDisplay = async () =>{
-    try {
-      const uploadedFile = fileUploadRef.current.files[0];
-      const formData = new FormData();
-      formData.append("image", uploadedFile);
-  
-      const res = await axios.post(`${apiURL}/item`, formData);
-      console.log("Response from server:", res);
-      const data = res.data;
-      console.log("Image URL:", data.image);
-      setImageURL(data.image);
-    } catch (error) {
-      console.log(error);
-    }
+  const handleImageDisplay = () =>{
+    const uploadedFile = fileUploadRef.current.files[0];
+    const cachedURL = URL.createObjectURL(uploadedFile);
+    setImageURL(cachedURL);
   }
+
+  // const handleImageDisplay = async () =>{
+  //   try {
+  //     const uploadedFile = fileUploadRef.current.files[0];
+  //     const formData = new FormData();
+  //     formData.append("image", uploadedFile);
+  
+  //     const res = await axios.post(`${apiURL}/item`, formData);
+  //     console.log("Response from server:", res);
+  //     const data = res.data;
+  //     console.log("Image URL:", data.image);
+  //     setImageURL(data.image);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   // const postNewItem = async (itemsData) => {
   //   try {
@@ -94,9 +94,33 @@ const ItemDetailsForm = () => {
   //   }
   // };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const uploadedFile = fileUploadRef.current.files[0];
+
+    if (uploadedFile) {
+      formData.append("image", uploadedFile);
+    }
+
+    try {
+      const res = await axios.post(`${apiURL}/item`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      // console.log(res);
+      alert("Your upload was successful! Click Ok to redirect to Homepage...");
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   
   return (
-      <form className="form"  >
+      <form className="form" onSubmit={handleSubmit} >
         <div className="form__photo">
           <label className="form__title sub-header">Upload a Photo</label>
           <div className="form__image-box">
@@ -108,7 +132,7 @@ const ItemDetailsForm = () => {
         <div className="form__detials">
         <label className="form__title sub-header">Item Detials</label>
         <TextInput name="name" label="NAME" placeholder="NAME OF THE ITEM"/>
-        <TextInput name="catogory" label="CATOGORY" placeholder="CATOGORY OF THE ITEM"/>
+        <TextInput name="category" label="CATEGORY" placeholder="CATEGORY OF THE ITEM"/>
         <TextInput name="color" label="COLOR" placeholder="COLOR OF THE ITEM"/>
         <TextInput name="season" label="SEASON" placeholder="SEASON OF THE ITEM"/>
         <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM"/>
