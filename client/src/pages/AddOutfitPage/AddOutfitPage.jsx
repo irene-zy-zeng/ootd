@@ -46,6 +46,10 @@ const AddOutfitPage = () => {
     setCanvasItems(newCanvasItems);
   };
 
+  const clearCanvas = () => {
+    setCanvasItems([]);
+  };
+
   return (
     <>
       <div className="button-container">
@@ -61,7 +65,7 @@ const AddOutfitPage = () => {
             ))}
         </div>
         <div className="new-outfit__button">
-          <Button buttonVariant="delete" buttonLabel="Cancel" />
+          <Button buttonVariant="delete" buttonLabel="Cancel" onClickAction={clearCanvas}  />
           <Button buttonVariant="primary" buttonLabel="Save" />
         </div>
       </section>
