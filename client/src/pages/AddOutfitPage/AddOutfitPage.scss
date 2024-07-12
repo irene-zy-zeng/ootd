@@ -1,0 +1,112 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+.new-outfit-page{
+    display: grid;
+    gap: $mobile-column-gutter;
+    grid-template-columns: repeat(6, 1fr);
+    @include tablet{
+        grid-template-columns: repeat(12, 1fr);
+    }
+    @include desktop{
+        margin: auto;
+        max-width: 80rem;
+    }
+}
+
+.new-outfit{
+    @include page-padding;
+    display: flex;
+    flex-direction: column;
+    grid-column: span 6;
+    gap: $mobile-column-gutter;
+    @include tablet{
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    &__title{
+        grid-column: span 6;
+        @include tablet{
+            grid-column: span 12;
+        }
+    }
+
+    &__canvas{
+        grid-column: span 6;
+        background-color: $cream;
+        border-radius: $border-radius;
+        border: 3px solid $lavender;
+        height: 45vh;
+    }
+
+    &__button{
+        grid-column: span 6;
+        display: flex;
+        gap: $mobile-column-gutter;
+        justify-content: center;
+        @include tablet {
+          gap: $tablet-desktop-gutter;
+        }
+    }
+}
+
+.all-items{
+    grid-column: span 6;
+    @include page-padding;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-column-gutter;
+    @include tablet{
+        gap: $tablet-desktop-gutter;
+    }
+    @include desktop{
+        margin: auto;
+        max-width: 80rem;
+    }
+}
+
+.group{
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-column-gutter;
+    @include tablet{
+        gap: $tablet-desktop-gutter;
+    }
+
+    &__title{
+        margin: auto;
+    }
+
+    &__content{
+    width: 100%;
+    display: grid;
+    gap: $mobile-column-gutter;
+    grid-template-columns: repeat(6, 1fr);
+    @include tablet{
+        grid-template-columns: repeat(12, 1fr);
+    }
+    }
+
+    &__image-card{
+        grid-column: span 2;
+        height: 15vh;
+        border-radius: $border-radius;
+        &:hover{
+            border: 3px solid $lavender;
+            cursor: pointer;
+        }
+        @include tablet{
+            height: 8vh;
+        }
+        @include desktop{
+            height: 10vh;
+        }
+    }
+
+    &__image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+}

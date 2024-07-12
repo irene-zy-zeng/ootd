@@ -38,7 +38,7 @@ const ClosetPage = () => {
         <Button buttonVariant="primary" buttonLabel="Add New Item" buttonIcon={AddIcon} onClickAction={() => navigate("/upload")}/>
         <Button buttonVariant="secondary" buttonLabel="Sort By ..." buttonIcon={SortIcon} />
       </div>
-    <section className="allItems">
+    <section className="all-items">
       {itemsData == null ? (
         <p>Loading...</p>
         ) : (

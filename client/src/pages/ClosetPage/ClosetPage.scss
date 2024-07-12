@@ -2,7 +2,7 @@
 @use "../../styles//partials/mixins" as *;
 
 
-.allItems{
+.all-items{
     @include page-padding;
     display: flex;
     flex-direction: column;
