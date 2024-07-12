@@ -12,6 +12,8 @@ const apiURL = import.meta.env.VITE_API_URL;
 const AddOutfitPage = () => {
 
   const [itemsData, setItemsData] = useState([]);
+  const [canvasItems, setCanvasItems] = useState([]);
+
   const navigate = useNavigate();
 
   const getAllItems = async () => {
@@ -30,6 +32,15 @@ const AddOutfitPage = () => {
 
   const groupedItems = Object.groupBy(itemsData,({category})=> category);
 
+  const handleImageClick = (item) => {
+    setCanvasItems([...canvasItems, item]);
+  };
+
+  const handleCanvasImageClick = (item) => {
+    const newCanvasItems = [...canvasItems];
+    newCanvasItems.splice(item.id, 1);
+    setCanvasItems(newCanvasItems);
+  };
 
   return (
     <>
@@ -41,7 +52,9 @@ const AddOutfitPage = () => {
       <section className="new-outfit">
         <h1 className="new-outfit__title page-header">NEW OUTFIT</h1>
         <div className="new-outfit__canvas">
-
+            {canvasItems.map((item) => (
+              <img key={item.id} src={item.image} alt={item.name} className="new-outfit__canvas-image" onClick={() => handleCanvasImageClick(item.id)}/>
+            ))}
         </div>
         <div className="new-outfit__button">
           <Button buttonVariant="delete" buttonLabel="Cancel" />
@@ -58,7 +71,7 @@ const AddOutfitPage = () => {
               <h2 className="group__title sub-header">{category}</h2>
               <div className="group__content">
                 {groupedItems[category].map((item) => (
-                  <div key={item.id} className="group__image-card">
+                  <div key={item.id} className="group__image-card" onClick={() => handleImageClick(item)}>
                     <img src={item.image} alt={item.name} className="group__image"/>
                   </div>
                 ))}
