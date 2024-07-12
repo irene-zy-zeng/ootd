@@ -36,9 +36,9 @@ const AddOutfitPage = () => {
     setCanvasItems([...canvasItems, item]);
   };
 
-  const handleCanvasImageClick = (item) => {
+  const handleCanvasImageClick = (index) => {
     const newCanvasItems = [...canvasItems];
-    newCanvasItems.splice(item.id, 1);
+    newCanvasItems.splice(index, 1);
     setCanvasItems(newCanvasItems);
   };
 
@@ -52,8 +52,8 @@ const AddOutfitPage = () => {
       <section className="new-outfit">
         <h1 className="new-outfit__title page-header">NEW OUTFIT</h1>
         <div className="new-outfit__canvas">
-            {canvasItems.map((item) => (
-              <img key={item.id} src={item.image} alt={item.name} className="new-outfit__canvas-image" onClick={() => handleCanvasImageClick(item.id)}/>
+            {canvasItems.map((item,index) => (
+              <img key={index} src={item.image} alt={item.name} className="new-outfit__canvas-image" onClick={() => handleCanvasImageClick(index)}/>
             ))}
         </div>
         <div className="new-outfit__button">
