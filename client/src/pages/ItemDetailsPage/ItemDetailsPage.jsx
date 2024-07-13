@@ -1,24 +1,21 @@
 import Subheader from "../../components/Subheader/Subheader";
-import ItemDetailsForm from "../../components/ItemDetailsForm/ItemDetailsForm";
-import TextInput from "../../components/TextInput/TextInput";
 import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ItemDetailsPage.scss";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
 const ItemDetailsPage = (selectedItemId) => {
-  const [selectedItem, setSeletedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
   const getSelectedItem = async (itemId) => {
     try {
       const res = await axios.get(`${apiURL}/item/${id}`);
-      setSeletedItem(res.data);
+      setSelectedItem(res.data);
       // console.log(res.data);
     } catch (error) {
       console.log(error);
@@ -46,7 +43,7 @@ const ItemDetailsPage = (selectedItemId) => {
   return (
     <div>
       <Subheader titleText="Details" />
-      <main className="item-details">
+      <section className="item-details">
       <div className="item-details__title">
         <h2 className="sub-header">{selectedItem.name}</h2>
       </div>
@@ -77,11 +74,11 @@ const ItemDetailsPage = (selectedItemId) => {
         </div>
         <div className="item-details__button">
           <Button buttonVariant="delete" buttonLabel="Delete" onClickAction={deleteItem}/>
-          <Button buttonVariant="primary" buttonLabel="Edit" />
+          <Button buttonVariant="primary" buttonLabel="Edit" onClickAction={() => navigate(`/closet/${id}/edit`)}/>
         </div>
       </div>
       </div>
-      </main>
+      </section>
     </div>
   );
 };
