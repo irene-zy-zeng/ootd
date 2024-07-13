@@ -4,6 +4,7 @@ import TextInput from "../../components/TextInput/TextInput";
 import Button from "../../components/Button/Button";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ItemDetailsPage.scss";
 
@@ -12,12 +13,13 @@ const apiURL = import.meta.env.VITE_API_URL;
 const ItemDetailsPage = (selectedItemId) => {
   const [selectedItem, setSeletedItem] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const getSelectedItem = async (itemId) => {
     try {
       const res = await axios.get(`${apiURL}/item/${id}`);
       setSeletedItem(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -26,6 +28,16 @@ const ItemDetailsPage = (selectedItemId) => {
   useEffect(() => {
     getSelectedItem(selectedItemId);
   }, [selectedItemId]);
+
+  const deleteItem = async () =>{
+    try {
+      await axios.delete(`${apiURL}/item/${id}`);
+      alert("Item deleted successfully! Click Ok to redirect to Homepage...");
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   if (selectedItem === null) {
     return <div>loading...</div>;
@@ -64,7 +76,7 @@ const ItemDetailsPage = (selectedItemId) => {
           <p className="item-details__text body-medium">{selectedItem.brand}</p>
         </div>
         <div className="item-details__button">
-          <Button buttonVariant="delete" buttonLabel="Delete" />
+          <Button buttonVariant="delete" buttonLabel="Delete" onClickAction={deleteItem}/>
           <Button buttonVariant="primary" buttonLabel="Edit" />
         </div>
       </div>
