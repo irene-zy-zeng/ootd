@@ -1,32 +1,36 @@
 @use "../../styles//partials/variables" as *;
 @use "../../styles//partials/mixins" as *;
 
-.all-outfits{
-    @include page-padding;
-    display: grid;
-    gap: $mobile-column-gutter;
-    grid-template-columns: repeat(6, 1fr);
-    @include tablet{
-        grid-template-columns: repeat(12, 1fr);
+.all-outfits {
+  @include page-padding;
+  display: grid;
+  gap: $mobile-column-gutter;
+  grid-template-columns: repeat(6, 1fr);
+  @include tablet {
+    grid-template-columns: repeat(12, 1fr);
+    gap: $tablet-desktop-gutter;
+  }
+
+  &__title {
+    grid-column: span 6;
+    @include tablet {
+      grid-column: span 12;
     }
+  }
 
-    &__title{
-        grid-column: span 6;
-
+  &__image-card {
+    grid-column: span 3;
+    border-radius: $border-radius;
+    border: 3px solid $lavender;
+    &:hover{
+        background-color: rgba($lavender, 0.2);
+        cursor: pointer;
     }
+  }
 
-    &__image-card{
-        grid-column: span 3;
-        border-radius: $border-radius;
-        &:hover{
-            border: 3px solid $lavender;
-        }
-    }
-
-    &__image{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

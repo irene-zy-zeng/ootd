@@ -32,13 +32,6 @@ const AddOutfitPage = () => {
 
   const groupedItems = Object.groupBy(itemsData, ({ category }) => category);
 
-  // const handleImageClick = (item) => {
-  //   if (canvasItems.length < 4) {
-  //     setCanvasItems([...canvasItems, item]);
-  //   } else {
-  //     alert("You can only add up to 4 items.");
-  //   }
-  // };
   const handleImageClick = (item) => {
     if (canvasItems.length < 4) {
       const newItem = { ...item, loaded: false };
@@ -47,13 +40,11 @@ const AddOutfitPage = () => {
       alert("You can only add up to 4 items.");
     }
   };
+
   const handleImageLoad = (index) => {
     const newCanvasItems = [...canvasItems];
     newCanvasItems[index].loaded = true;
     setCanvasItems(newCanvasItems);
-  
-    // Debug: Log the load state
-    console.log("Image loaded at index:", index, newCanvasItems);
   };
 
   const handleCanvasImageClick = (index) => {
@@ -65,39 +56,6 @@ const AddOutfitPage = () => {
   const clearCanvas = () => {
     setCanvasItems([]);
   };
-
-  // const saveCanvasAsPNG = () => {
-  //   html2canvas(canvasRef.current).then((canvas) => {
-  //     const imgData = canvas.toDataURL("image/png");
-  //     console.log(imgData);
-  //     console.log("clicked!")
-  //   });
-  // };
-
-  // const saveCanvasAsPNG = () => {
-  //   html2canvas(canvasRef.current).then((canvas) => {
-  //     canvas.toBlob((blob) => {
-  //       const formData = new FormData();
-  //       formData.append("image", blob, "outfit.png");
-
-  //       axios
-  //         .post(`${apiURL}/outfit`, formData, {
-  //           headers: {
-  //             "Content-Type": "multipart/form-data",
-  //           },
-  //         })
-  //         .then((response) => {
-  //           console.log("Outfit saved successfully:", response.data);
-  //           alert("New outfit created successfully!");
-  //           navigate(`/outfit`);
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error saving outfit:", error);
-  //           // Handle error as needed
-  //         });
-  //     }, "image/png");
-  //   });
-  // };
 
   const saveCanvasAsPNG = () => {
     if (canvasItems.some(item => !item.loaded)) {
@@ -122,7 +80,6 @@ const AddOutfitPage = () => {
         })
         .catch((error) => {
           console.error("Error saving outfit:", error);
-          // Handle error as needed
         });
       })
       .catch((error) => {
@@ -149,6 +106,7 @@ const AddOutfitPage = () => {
       <div className="new-outfit-page">
         <section className="new-outfit">
           <h1 className="new-outfit__title page-header">NEW OUTFIT</h1>
+          <div className="new-outfit__canvas-bg">
           <div className="new-outfit__canvas" ref={canvasRef}>
             {canvasItems.map((item, index) => (
               <img
@@ -160,6 +118,7 @@ const AddOutfitPage = () => {
                 onLoad={() => handleImageLoad(index)}
               />
             ))}
+          </div>
           </div>
           <div className="new-outfit__button">
             <Button
