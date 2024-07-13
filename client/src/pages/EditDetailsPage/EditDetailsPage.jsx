@@ -59,11 +59,13 @@ const EditDetailsPage = () => {
     <div>
         <Subheader titleText="Edit" />
         <section className="edit-detials">
+          <div className="edit-detials__item">
           <div className="edit-detials__title">
             <h2 className="sub-header"> Edit Item Details</h2>
           </div>
           <div className="edit-detials__image-card">
             <img src={selectedItem.image} alt={selectedItem.name} className="edit-detials__image"/>
+          </div>
           </div>
         <form className="edit-detials__form" onSubmit={handleSubmit}>
         <TextInput name="name" label="NAME" placeholder="NAME OF THE ITEM" value={selectedItem.name} onChange={handleInputChange}/>

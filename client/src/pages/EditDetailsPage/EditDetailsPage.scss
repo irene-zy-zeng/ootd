@@ -15,12 +15,13 @@
     max-width: 80rem;
   }
 
-  &__title {
+  &__item {
+    display: flex;
+    flex-direction: column;
     grid-column: span 6;
   }
 
   &__image-card {
-    grid-column: span 6;
     border-radius: $border-radius;
   }
 
@@ -36,8 +37,8 @@
     display: flex;
     flex-direction: column;
     gap: $mobile-column-gutter;
-    @include tablet{
-        gap: $tablet-desktop-gutter;
+    @include tablet {
+      gap: $tablet-desktop-gutter;
     }
   }
 }
