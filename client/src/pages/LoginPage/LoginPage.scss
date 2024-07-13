@@ -1,0 +1,43 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+.login {
+  @include page-padding;
+}
+
+.login-form {
+    
+    margin: auto;
+    color: $obsidian;
+    background-color: rgba($cream, 0.5);
+    @include page-padding;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-column-gutter;
+    width: 65vw;
+    border-radius: $border-radius;
+
+    @include tablet {
+      gap: $tablet-desktop-gutter;
+    }
+
+    &__title{
+        margin: auto;
+    }
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+
+      &__text{
+        border: 2px solid $lavender;
+        border-radius: $border-radius;
+        padding: .5rem;
+      }
+
+      &__button{
+        margin: auto;
+      }
+  }
