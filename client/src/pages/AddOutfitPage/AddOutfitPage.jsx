@@ -2,9 +2,10 @@ import "./AddOutfitPage.scss";
 import Button from "../../components/Button/Button";
 import AddIcon from "../../assets/icons/add.svg";
 import ApparelIcon from "../../assets/icons/apparel.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import html2canvas from "html2canvas";
 
 
 const apiURL = import.meta.env.VITE_API_URL;
@@ -13,8 +14,8 @@ const AddOutfitPage = () => {
 
   const [itemsData, setItemsData] = useState([]);
   const [canvasItems, setCanvasItems] = useState([]);
-
   const navigate = useNavigate();
+  const canvasRef = useRef(null);
 
   const getAllItems = async () => {
     try {
@@ -50,6 +51,37 @@ const AddOutfitPage = () => {
     setCanvasItems([]);
   };
 
+  // const saveCanvasAsPNG = () => {
+  //   html2canvas(canvasRef.current).then((canvas) => {
+  //     const imgData = canvas.toDataURL("image/png");
+  //     console.log(imgData); 
+  //     console.log("clicked!")
+  //   });
+  // };
+
+  const saveCanvasAsPNG = () => {
+    html2canvas(canvasRef.current).then((canvas) => {
+      canvas.toBlob((blob) => {
+        const formData = new FormData();
+        formData.append("image", blob, "outfit.png");
+  
+        axios.post(`${apiURL}/outfit`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log("Outfit saved successfully:", response.data);
+          // Optionally handle success or navigate to another page
+        })
+        .catch((error) => {
+          console.error("Error saving outfit:", error);
+          // Handle error as needed
+        });
+      }, "image/png");
+    });
+  };
+
   return (
     <>
       <div className="button-container">
@@ -59,14 +91,14 @@ const AddOutfitPage = () => {
       <div className="new-outfit-page">
       <section className="new-outfit">
         <h1 className="new-outfit__title page-header">NEW OUTFIT</h1>
-        <div className="new-outfit__canvas">
+        <div className="new-outfit__canvas" ref={canvasRef}>
             {canvasItems.map((item,index) => (
               <img key={index} src={item.image} alt={item.name} className="new-outfit__canvas-image" onClick={() => handleCanvasImageClick(index)}/>
             ))}
         </div>
         <div className="new-outfit__button">
           <Button buttonVariant="delete" buttonLabel="Cancel" onClickAction={clearCanvas}  />
-          <Button buttonVariant="primary" buttonLabel="Save" />
+          <Button buttonVariant="primary" buttonLabel="Save" onClickAction={saveCanvasAsPNG}/>
         </div>
       </section>
       <section className="all-items">
