@@ -61,4 +61,8 @@ Instructions on setting up your project locally.
 
 -  **Outfit Creation:** Users can create and save outfits by combining different wardrobe items. New outfits will be shown on the All Outfit Page.
 
+**Login In**
+
+- You can direct to "http://localhost:5173/login" to get a sense of log in experience. No auth is implemeneted.
+
  
