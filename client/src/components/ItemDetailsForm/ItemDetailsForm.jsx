@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ItemDetailsForm.scss"
 import Button from "../Button/Button";
-import uuid4 from "uuid4";
 import axios from "axios";
 
 const apiURL = import.meta.env.VITE_API_URL;
