@@ -6,10 +6,15 @@ import "./LoginPage.scss"
 const LoginPage = () => {
   const navigate = useNavigate();
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/");
+  };
+
   return (
     <div className="login">
 
-      <form className="login-form" onSubmit={() => navigate("/")}>
+      <form className="login-form" onSubmit={handleSubmit}>
       <label className="login-form__title page-header">SIGN IN</label>
       <img src={Illustration} alt="Login Image" className="login-form__image"/>
         <div className="login-form__input">
