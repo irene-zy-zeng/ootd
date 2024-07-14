@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import html2canvas from "html2canvas";
 import domtoimage from 'dom-to-image';
+import Subheader from "../../components/Subheader/Subheader";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -22,7 +23,7 @@ const AddOutfitPage = () => {
       const itemsData = res.data;
       setItemsData(itemsData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -74,7 +75,6 @@ const AddOutfitPage = () => {
           },
         })
         .then((response) => {
-          console.log("Outfit saved successfully:", response.data);
           alert("New outfit created successfully!");
           navigate(`/outfit`);
         })
@@ -90,6 +90,7 @@ const AddOutfitPage = () => {
 
   return (
     <>
+      <Subheader titleText="Create new outfit" onClickAction={() => navigate(`/outfit`)}/>
       <div className="button-container">
         <Button
           buttonVariant="secondary"
@@ -123,12 +124,12 @@ const AddOutfitPage = () => {
           <div className="new-outfit__button">
             <Button
               buttonVariant="delete"
-              buttonLabel="Cancel"
+              buttonLabel="Clear Canvas"
               onClickAction={clearCanvas}
             />
             <Button
               buttonVariant="primary"
-              buttonLabel="Save"
+              buttonLabel="Save Outfit"
               onClickAction={saveCanvasAsPNG}
             />
           </div>

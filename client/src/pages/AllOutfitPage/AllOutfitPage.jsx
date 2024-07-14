@@ -18,10 +18,9 @@ const OutfitPage = () => {
     try {
       const res = await axios.get(`${apiURL}/outfit`);
       const outfitsData = res.data;
-      console.log(outfitsData);
       setOutfitsData(outfitsData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
