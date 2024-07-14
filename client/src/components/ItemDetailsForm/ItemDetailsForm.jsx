@@ -64,6 +64,10 @@ const ItemDetailsForm = () => {
             <input type="file" ref={fileUploadRef} onChange={handleImageDisplay} hidden/>
             <Button buttonVariant="primary" buttonIcon={UploadIcon} iconAltText="Upload Icon" onClickAction={handleImageUpload}/>
           </div>
+          <p className="body-large">
+            * Take a photo of your clothing item and click upload icon to upload.<br />
+            * Removing the background of your photo is highy recommended.
+          </p>
         </div>
         <div className="form__detials">
         <label className="form__title sub-header">Item Detials</label>

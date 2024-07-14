@@ -31,7 +31,7 @@
   }
 
   &__canvas-bg{
-    background-color: $cream;
+    background-color: rgba($cream, 0.7);
     border-radius: $border-radius;
     border: 3px solid $lavender;
     box-sizing: border-box;

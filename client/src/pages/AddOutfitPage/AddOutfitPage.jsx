@@ -106,6 +106,13 @@ const AddOutfitPage = () => {
       <div className="new-outfit-page">
         <section className="new-outfit">
           <h1 className="new-outfit__title page-header">NEW OUTFIT</h1>
+          <div className="new-outfit__instructions">
+          <p className="body-large">
+            * Click on your clothing items to add to the canvas. <br />
+            * Maximum of 4 items can be added.<br />
+            * Click any items on the canvas can remove it from your canvas.
+          </p>
+          </div>
           <div className="new-outfit__canvas-bg">
           <div className="new-outfit__canvas" ref={canvasRef}>
             {canvasItems.map((item, index) => (
