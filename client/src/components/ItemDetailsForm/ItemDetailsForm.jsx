@@ -49,6 +49,11 @@ const ItemDetailsForm = () => {
     }
   };
 
+  const handleCancel = (event) => {
+    event.preventDefault();
+    navigate("/");
+  };
+
   
   return (
       <form className="form" onSubmit={handleSubmit} >
@@ -68,7 +73,7 @@ const ItemDetailsForm = () => {
         <TextInput name="season" label="SEASON" placeholder="SEASON OF THE ITEM"/>
         <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM"/>
         <div className="form__button">
-          <Button buttonVariant="delete" buttonLabel="Cancel" />
+          <Button buttonVariant="delete" buttonLabel="Cancel" onClickAction={handleCancel}/>
           <Button type="submit" buttonVariant="primary" buttonLabel="Submit" />
         </div>
         </div>

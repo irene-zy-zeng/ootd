@@ -42,7 +42,7 @@ const ItemDetailsPage = (selectedItemId) => {
 
   return (
     <div>
-      <Subheader titleText="Details" />
+      <Subheader titleText="Details" onClickAction={() => navigate(`/`)}/>
       <section className="item-details">
       <div className="item-details__title">
         <h2 className="sub-header">{selectedItem.name}</h2>

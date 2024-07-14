@@ -51,13 +51,18 @@ const EditDetailsPage = () => {
     }
   }
 
+  const handleCancel = (event) => {
+    event.preventDefault();
+    navigate(`/closet/${id}`);
+  };
+
   if (selectedItem === null) {
     return <div>loading...</div>;
   }
 
   return (
     <div>
-        <Subheader titleText="Edit" />
+        <Subheader titleText="Edit" onClickAction={() => navigate(`/closet/${id}`)}/>
         <section className="edit-detials">
           <div className="edit-detials__item">
           <div className="edit-detials__title">
@@ -74,7 +79,7 @@ const EditDetailsPage = () => {
           <TextInput name="season" label="SEASON" placeholder="SEASON OF THE ITEM" value={selectedItem.season} onChange={handleInputChange}/>
           <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM" value={selectedItem.brand} onChange={handleInputChange}/>
           <div className="item-details__button">
-            <Button buttonVariant="delete" buttonLabel="Cancel" onClickAction={() => navigate(`/closet/${id}`)}/>
+            <Button buttonVariant="delete" buttonLabel="Cancel" onClickAction={handleCancel}/>
             <Button type="submit" buttonVariant="primary" buttonLabel="Save" />
           </div>
       </form>
