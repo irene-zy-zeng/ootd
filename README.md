@@ -4,7 +4,7 @@
 
 ## Overview
 
-This project aims to deliver a simple yet effective web application, focusing on helping users organize their wardrobe and plan their outfits efficiently.
+This project aims to deliver a simple yet effective web application, helping users organize their wardrobes and plan their outfits efficiently.
 
 ##  Getting Started
 Instructions on setting up your project locally. 
@@ -51,7 +51,7 @@ Instructions on setting up your project locally.
 
 **Closet Page**
 
--  **Upload/Add Items:** Users can add items to their wardrobe, including photo uploads and details like category, color, brand, and season. You can download the images in assets when testing upload feature.
+-  **Upload/Add Items:** Users can add items to their wardrobe, including photo uploads and details like category, colour, brand, and season. You can download the images in assets when testing upload feature.
 
 -  **Edit Items:** Users can edit the details of existing wardrobe items.
 
@@ -59,6 +59,6 @@ Instructions on setting up your project locally.
 
 **Outfit Page**
 
--  **Outfit Creation:** Users can create and save outfits by combining different wardrobe items. New outfit will be shown on All Outfit Page.
+-  **Outfit Creation:** Users can create and save outfits by combining different wardrobe items. New outfits will be shown on the All Outfit Page.
 
  
