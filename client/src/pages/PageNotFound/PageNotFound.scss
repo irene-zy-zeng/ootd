@@ -1,0 +1,11 @@
+@use "../../styles//partials/variables" as *;
+@use "../../styles//partials/mixins" as *;
+
+.error-page{
+    @include page-padding;
+    @include desktop{
+        margin: auto;
+        max-width: 80rem;
+    }
+
+}
