@@ -42,7 +42,9 @@ const ClosetPage = () => {
         ) : (
           Object.keys(groupedItems).map((category)=>(
             <div key={category} className="catogory-group">
-              <h2 className="catogory-group__title sub-header">{category}</h2>
+              <div className="catogory-group__title">
+                <h2 className="sub-header">{category}</h2>
+              </div>
               <div className="catogory-group__content">
                 {groupedItems[category].map((item) => (
                   <Link to={`/closet/${item.id}`} key={item.id} className="catogory-group__image-card">
