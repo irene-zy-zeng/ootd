@@ -1,9 +1,7 @@
 import "./Subheader.scss";
 import BackIcon from "../../assets/icons/back.svg";
-import { useNavigate } from "react-router-dom";
 
 const Subheader = ({titleText, onClickAction}) => {
-  const navigate = useNavigate();
 
   return (
     <div className="subheader">

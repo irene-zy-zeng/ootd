@@ -17,10 +17,9 @@ const ClosetPage = () => {
     try {
       const res = await axios.get(`${apiURL}/item`);
       const itemsData = res.data;
-      // console.log(itemsData);
       setItemsData(itemsData);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -30,7 +29,6 @@ const ClosetPage = () => {
 
   //Function to group items -> give you an array of catogories including an array of items
   const groupedItems = Object.groupBy(itemsData,({category})=> category);
-  // console.log(groupedItems);
 
   return (
     <>

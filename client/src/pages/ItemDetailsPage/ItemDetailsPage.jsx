@@ -16,9 +16,8 @@ const ItemDetailsPage = (selectedItemId) => {
     try {
       const res = await axios.get(`${apiURL}/item/${id}`);
       setSelectedItem(res.data);
-      // console.log(res.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -32,7 +31,7 @@ const ItemDetailsPage = (selectedItemId) => {
       alert("Item deleted successfully! Click Ok to redirect to Homepage...");
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

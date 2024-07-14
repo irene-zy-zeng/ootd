@@ -18,7 +18,7 @@ const EditDetailsPage = () => {
       const res = await axios.get(`${apiURL}/item/${id}`);
       setSelectedItem(res.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -46,7 +46,7 @@ const EditDetailsPage = () => {
       alert("Item updated successfully!");
       navigate(`/closet/${id}`);
     } catch (error) {
-      console.log(error);
+      console.error(error);
 
     }
   }

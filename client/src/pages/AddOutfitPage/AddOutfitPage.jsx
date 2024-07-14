@@ -5,7 +5,6 @@ import ApparelIcon from "../../assets/icons/apparel.svg";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import html2canvas from "html2canvas";
 import domtoimage from 'dom-to-image';
 import Subheader from "../../components/Subheader/Subheader";
 
