@@ -17,13 +17,13 @@ Instructions on setting up your project locally.
     
     git clone https://github.com/github_username/repo_name.git
 
-2.  Install NPM packages
-
-	npm install
-
-3. Change directory to  **client** folder
+2. Change directory to  **client** folder
 
 	cd client
+
+3.  Install NPM packages
+
+	npm install
 
 4. Set up your .env file as per .env.example
 
