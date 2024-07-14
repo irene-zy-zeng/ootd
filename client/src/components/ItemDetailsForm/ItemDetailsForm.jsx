@@ -77,7 +77,7 @@ const ItemDetailsForm = () => {
         <TextInput name="brand" label="BRAND" placeholder="BRAND OF THE ITEM"/>
         <div className="form__button">
           <Button buttonVariant="delete" buttonLabel="Cancel" onClickAction={handleCancel}/>
-          <Button type="submit" buttonVariant="primary" buttonLabel="Submit" />
+          <Button type="submit" buttonVariant="primary" buttonLabel="Add Item" />
         </div>
         </div>
       </form>
