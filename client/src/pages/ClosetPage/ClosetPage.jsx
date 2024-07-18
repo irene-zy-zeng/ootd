@@ -2,7 +2,7 @@ import Button from "../../components/Button/Button";
 import AddIcon from "../../assets/icons/add.svg";
 import SortIcon from "../../assets/icons/sort.svg";
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./ClosetPage.scss";
 
@@ -10,7 +10,6 @@ const apiURL = import.meta.env.VITE_API_URL;
 
 const ClosetPage = () => {
   const [itemsData, setItemsData] = useState([]);
-  const { id } = useParams();
   const navigate = useNavigate();
 
   const getAllItems = async () => {

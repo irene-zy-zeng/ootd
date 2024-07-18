@@ -10,6 +10,10 @@
     grid-template-columns: repeat(12, 1fr);
     gap: $tablet-desktop-gutter;
   }
+  @include desktop{
+    margin: auto;
+    max-width: 80rem;
+}
 
   &__title {
     grid-column: span 6;
